@@ -1,0 +1,97 @@
+.brd{
+    width:0px;
+    height:0px;
+    border-top:50px solid blue;
+    border-bottom:50px solid yellow;
+    border-left:50px solid red;
+    border-right:0;
+    border-bottom:0px;
+}
+
+.triangle{
+    width:0px;
+    height:0px;
+    border:50px solid;
+    border-color:red red transparent transparent;
+}
+
+.bar{
+    width:120px;
+    height:10px;
+    border-top:30px double;
+    border-bottom:10px solid;
+}
+
+
+/*鹰嘴*/
+.mouse{
+    width:50px;
+    height:20px;
+    border-top-left-radius:95%;
+    border:20px solid;
+    border-color:red yellow green blue;
+    border-left-width:0;
+    border-right:0;
+    border-bottom:0;
+    /*border-left:1px solid;*/
+}
+
+/*圆形加载样式*/
+.circle{
+    width: 50px;
+    height:50px;
+    border:5px solid;
+    border-bottom:5px solid #cccccc;
+    border-left:5px solid #cccccc;
+    border-radius:50%;
+    -webkit-animation:load 1.1s linear infinite;
+}
+@-webkit-keyframes load {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+
+/*五条竖线实现加载样式*/
+.line{
+    width:3px;
+    height:30px;
+    background:#99CC33;
+    margin-right:5px;
+    float:left;
+    -webkit-animation: strechdelay 1.2s infinite ease-in-out;
+    /*transition:height 1.2s ease-in-out;*/
+}
+
+@-webkit-keyframes strechdelay {
+    0%,40%,100%{transform: scaleY(0.4)}
+    20%{transform: scaleY(1)}
+}
+
+.line1{animation-delay: 0s}
+.line2{animation-delay: 0.1s}
+.line3{animation-delay: 0.2s}
+.line4{animation-delay: 0.3s}
+.line5{animation-delay: 0.4s}
+
+
+/*图片折角翻页*/
+.img_layer{
+    position: relative;
+    width:100px;
+    height:100px;
+    margin-top: 10px;
+}
+.img_layer::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0px solid;
+    border-color: rgba(0, 0, 0, 0.2) transparent;
+    transition: border 0.5s ease;
+}
+.img_layer:hover::before{
+    border-right-width:50px;
+    border-bottom-width:50px;
+    border-right-color: #FFCCCC;
+}

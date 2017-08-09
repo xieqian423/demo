@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="border.css"/>
+    <style type="text/css">
+        body{margin:0;padding:0;background:#f0f3f9}
+        .wrap{
+            display:flex;
+            flex-direction:column;
+        }
+        .wrap .row{
+            height:200px;
+            display:flex;
+        }
+
+        .wrap .row .item{
+            width:33.3%;
+            margin:3px;
+            background:#FFCCCC;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="row">
+        <div class="item" id="test"></div>
+        <div class="item"></div>
+        <div class="item" id="brd"></div>
+    </div>
+    <div class="row">
+        <div class="item" id="mouse"></div>
+        <div class="item" id="triangle"></div>
+        <div class="item" id="bar"></div>
+    </div>
+    <div class="row">
+        <div class="item" id="loadcircle"></div>
+        <div class="item" ></div>
+        <div class="item" id="fliping"></div>
+    </div>
+</div>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <script type="text/jsx">
+        ReactDOM.render(
+            <h1>Hello, world!</h1>,
+            document.getElementById("test")
+        );
+
+        var Icon = React.createClass({
+            render: function(){
+                return <div className={this.props.classname}></div>;
+            }
+        });
+
+        //鹰嘴
+        ReactDOM.render(
+            <Icon classname="mouse"/>,
+            document.getElementById("mouse")
+        );
+        //triangle
+        ReactDOM.render(
+            <Icon classname="triangle"/>,
+            document.getElementById("triangle")
+        );
+        ReactDOM.render(
+            <Icon classname="bar"/>,
+            document.getElementById("bar")
+        );
+        ReactDOM.render(
+            <Icon classname="brd"/>,
+            document.getElementById("brd")
+        );
+
+
+        //圆形加载
+        var IconLoadCircle = React.createClass({
+            render: function(){
+                return <div className={this.props.classname}></div>;
+            }
+        });
+        ReactDOM.render(
+            <IconLoadCircle classname="circle"/>,
+            document.getElementById("loadcircle")
+        );
+
+        //折角翻页
+        var IconFlip = React.createClass({
+            render: function(){
+                var styleObj={
+                    width:'100px',
+                    height:'100px'
+                };
+                var src = "images/001.jpg"
+                return (
+                    <div className={this.props.classname}>
+                        <img style={styleObj} src={src}/>
+                    </div>
+                );
+            }
+        });
+        ReactDOM.render(
+            <IconFlip classname="img_layer"/>,
+            document.getElementById("fliping")
+        );
+
+        //竖线型加载
+        var IconLoadLine = React.createClass({
+            render: function(){
+                return(
+                    <div class="strech" style="overflow:hidden">
+                        <div class="line line1"></div>
+                        <div class="line line2"></div>
+                        <div class="line line3"></div>
+                        <div class="line line4"></div>
+                        <div class="line line5"></div>
+                    </div>
+                );
+            }
+        });
+
+        //实现正圆运动，圆形图片
+    </script>
+</body>
+</html>
+
+<!---->

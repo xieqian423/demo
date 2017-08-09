@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>走马灯的特效</title>
+    <style type="text/css">
+        div,img{
+            margin:0;
+            padding:0;
+        }
+        img{
+            float:left;
+            height:150px;
+            width:200px;
+        }
+        #contaniner{
+            width:800px;
+            height:150px;
+            overflow: hidden;
+            border:solid #ccc 2px;
+        }
+        #block1,#block2{
+            float:left;
+        }
+        #panel{
+            width:500%; /*这个属性很重要 让容器有足够的宽度实现滚动*/
+            overflow: hidden;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div id="contaniner">
+    <div id="panel">
+        <div id="block1">
+            <img src="img/1.jpg" alt="图片1"/>
+            <img src="img/2.jpg" alt="图片2"/>
+            <img src="img/3.jpg" alt="图片3"/>
+            <img src="img/4.jpg" alt="图片4"/>
+        </div>
+        <div id="block2"></div><!--这个容器是用来防止图片滚动时会出现空白的区域-->
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload=function(){
+        var contanier=document.getElementById('contaniner');
+        var block1=document.getElementById('block1');
+        var block2=document.getElementById('block2');
+
+        //将block1容器里面的图片插入到block2容器里面  使其空白区域被遮住。
+        block2.innerHTML= block1.innerHTML;
+
+        function fun(){
+            if(contanier.scrollLeft<=0){
+                contanier.scrollLeft=800;
+            }else{
+                contanier.scrollLeft--;
+            }
+        }
+
+        var fun1=setInterval(fun,10);
+
+        contanier.onmouseover = function() {//鼠标经过时  清除定时器  停止图片的滚动
+            clearInterval(fun1)
+        };
+        contanier.onmouseout = function() {//鼠标离开后  继续滚动图片
+            fun1 = setInterval(fun, 10)
+        };
+    }
+</script>
+</body>
+</html>
